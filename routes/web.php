@@ -1,6 +1,9 @@
 <?php
 
+use App\Livewire\Qr\ShowQr;
 use Illuminate\Support\Facades\Route;
+
+use function Termwind\render;
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,4 +17,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+
+    Route::get('/code', [ShowQr::class, 'render'])->name('qrcode');
 });
